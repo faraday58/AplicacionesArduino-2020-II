@@ -72,5 +72,16 @@ namespace AplicacionesArduino_2020_II
 
 
         }
+
+        private void AbrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LimpiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chSenal.Series[0].Points.Clear();
+            dgvDatos.Rows.Clear();
+        }
     }
 }

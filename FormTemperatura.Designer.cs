@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aleatoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.limpiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.chSenal = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.timerGenera = new System.Windows.Forms.Timer(this.components);
             this.caTiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caTemperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chSenal = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.timerGenera = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chSenal)).BeginInit();
@@ -78,6 +78,7 @@
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             this.abrirToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.AbrirToolStripMenuItem_Click);
             // 
             // guardarToolStripMenuItem
             // 
@@ -100,20 +101,28 @@
             // aleatoriaToolStripMenuItem
             // 
             this.aleatoriaToolStripMenuItem.Name = "aleatoriaToolStripMenuItem";
-            this.aleatoriaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.aleatoriaToolStripMenuItem.Size = new System.Drawing.Size(184, 34);
             this.aleatoriaToolStripMenuItem.Text = "Aleatoria";
             this.aleatoriaToolStripMenuItem.Click += new System.EventHandler(this.AleatoriaToolStripMenuItem_Click);
+            // 
+            // detenerToolStripMenuItem
+            // 
+            this.detenerToolStripMenuItem.Name = "detenerToolStripMenuItem";
+            this.detenerToolStripMenuItem.Size = new System.Drawing.Size(184, 34);
+            this.detenerToolStripMenuItem.Text = "Detener";
+            this.detenerToolStripMenuItem.Click += new System.EventHandler(this.DetenerToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(267, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(181, 6);
             // 
             // limpiarToolStripMenuItem
             // 
             this.limpiarToolStripMenuItem.Name = "limpiarToolStripMenuItem";
             this.limpiarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.limpiarToolStripMenuItem.Text = "Limpiar";
+            this.limpiarToolStripMenuItem.Click += new System.EventHandler(this.LimpiarToolStripMenuItem_Click);
             // 
             // dgvDatos
             // 
@@ -127,29 +136,6 @@
             this.dgvDatos.RowTemplate.Height = 28;
             this.dgvDatos.Size = new System.Drawing.Size(368, 320);
             this.dgvDatos.TabIndex = 1;
-            // 
-            // chSenal
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chSenal.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chSenal.Legends.Add(legend3);
-            this.chSenal.Location = new System.Drawing.Point(48, 121);
-            this.chSenal.Name = "chSenal";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Legend = "Legend1";
-            series3.LegendText = "Simulación aleatoria";
-            series3.Name = "Simulada";
-            this.chSenal.Series.Add(series3);
-            this.chSenal.Size = new System.Drawing.Size(597, 320);
-            this.chSenal.TabIndex = 2;
-            this.chSenal.Text = "chart1";
-            // 
-            // timerGenera
-            // 
-            this.timerGenera.Interval = 500;
-            this.timerGenera.Tick += new System.EventHandler(this.TimerGenera_Tick);
             // 
             // caTiempo
             // 
@@ -167,12 +153,28 @@
             this.caTemperatura.ReadOnly = true;
             this.caTemperatura.Width = 150;
             // 
-            // detenerToolStripMenuItem
+            // chSenal
             // 
-            this.detenerToolStripMenuItem.Name = "detenerToolStripMenuItem";
-            this.detenerToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.detenerToolStripMenuItem.Text = "Detener";
-            this.detenerToolStripMenuItem.Click += new System.EventHandler(this.DetenerToolStripMenuItem_Click);
+            chartArea2.Name = "ChartArea1";
+            this.chSenal.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chSenal.Legends.Add(legend2);
+            this.chSenal.Location = new System.Drawing.Point(48, 121);
+            this.chSenal.Name = "chSenal";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.LegendText = "Simulación aleatoria";
+            series2.Name = "Simulada";
+            this.chSenal.Series.Add(series2);
+            this.chSenal.Size = new System.Drawing.Size(597, 320);
+            this.chSenal.TabIndex = 2;
+            this.chSenal.Text = "chart1";
+            // 
+            // timerGenera
+            // 
+            this.timerGenera.Interval = 500;
+            this.timerGenera.Tick += new System.EventHandler(this.TimerGenera_Tick);
             // 
             // FormTemperatura
             // 
