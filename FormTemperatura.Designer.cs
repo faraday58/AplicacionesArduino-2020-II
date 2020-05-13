@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +46,8 @@
             this.caTemperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chSenal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timerGenera = new System.Windows.Forms.Timer(this.components);
+            this.exportarAPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chSenal)).BeginInit();
@@ -68,7 +70,9 @@
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.abrirToolStripMenuItem,
-            this.guardarToolStripMenuItem});
+            this.guardarToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.exportarAPDFToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -155,18 +159,18 @@
             // 
             // chSenal
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chSenal.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chSenal.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chSenal.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chSenal.Legends.Add(legend4);
             this.chSenal.Location = new System.Drawing.Point(48, 121);
             this.chSenal.Name = "chSenal";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.LegendText = "Simulación aleatoria";
-            series2.Name = "Simulada";
-            this.chSenal.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.LegendText = "Simulación aleatoria";
+            series4.Name = "Simulada";
+            this.chSenal.Series.Add(series4);
             this.chSenal.Size = new System.Drawing.Size(597, 320);
             this.chSenal.TabIndex = 2;
             this.chSenal.Text = "chart1";
@@ -175,6 +179,18 @@
             // 
             this.timerGenera.Interval = 500;
             this.timerGenera.Tick += new System.EventHandler(this.TimerGenera_Tick);
+            // 
+            // exportarAPDFToolStripMenuItem
+            // 
+            this.exportarAPDFToolStripMenuItem.Name = "exportarAPDFToolStripMenuItem";
+            this.exportarAPDFToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.exportarAPDFToolStripMenuItem.Text = "Exportar a PDF";
+            this.exportarAPDFToolStripMenuItem.Click += new System.EventHandler(this.ExportarAPDFToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(267, 6);
             // 
             // FormTemperatura
             // 
@@ -213,5 +229,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chSenal;
         private System.Windows.Forms.Timer timerGenera;
         private System.Windows.Forms.ToolStripMenuItem detenerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportarAPDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }
 }
