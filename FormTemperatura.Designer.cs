@@ -36,6 +36,8 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportarAPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aleatoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,8 +48,13 @@
             this.caTemperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chSenal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timerGenera = new System.Windows.Forms.Timer(this.components);
-            this.exportarAPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.arduinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detenerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.limpiarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tiempoDeRetardoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chSenal)).BeginInit();
@@ -59,7 +66,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
-            this.simularToolStripMenuItem});
+            this.simularToolStripMenuItem,
+            this.arduinoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1339, 33);
@@ -80,16 +88,28 @@
             // abrirToolStripMenuItem
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
             this.abrirToolStripMenuItem.Text = "Abrir";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.AbrirToolStripMenuItem_Click);
             // 
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
             this.guardarToolStripMenuItem.Text = "Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.GuardarToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(228, 6);
+            // 
+            // exportarAPDFToolStripMenuItem
+            // 
+            this.exportarAPDFToolStripMenuItem.Name = "exportarAPDFToolStripMenuItem";
+            this.exportarAPDFToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+            this.exportarAPDFToolStripMenuItem.Text = "Exportar a PDF";
+            this.exportarAPDFToolStripMenuItem.Click += new System.EventHandler(this.ExportarAPDFToolStripMenuItem_Click);
             // 
             // simularToolStripMenuItem
             // 
@@ -97,7 +117,8 @@
             this.aleatoriaToolStripMenuItem,
             this.detenerToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.limpiarToolStripMenuItem});
+            this.limpiarToolStripMenuItem,
+            this.tiempoDeRetardoToolStripMenuItem});
             this.simularToolStripMenuItem.Name = "simularToolStripMenuItem";
             this.simularToolStripMenuItem.Size = new System.Drawing.Size(87, 29);
             this.simularToolStripMenuItem.Text = "Simular";
@@ -105,21 +126,21 @@
             // aleatoriaToolStripMenuItem
             // 
             this.aleatoriaToolStripMenuItem.Name = "aleatoriaToolStripMenuItem";
-            this.aleatoriaToolStripMenuItem.Size = new System.Drawing.Size(184, 34);
+            this.aleatoriaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.aleatoriaToolStripMenuItem.Text = "Aleatoria";
             this.aleatoriaToolStripMenuItem.Click += new System.EventHandler(this.AleatoriaToolStripMenuItem_Click);
             // 
             // detenerToolStripMenuItem
             // 
             this.detenerToolStripMenuItem.Name = "detenerToolStripMenuItem";
-            this.detenerToolStripMenuItem.Size = new System.Drawing.Size(184, 34);
+            this.detenerToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.detenerToolStripMenuItem.Text = "Detener";
             this.detenerToolStripMenuItem.Click += new System.EventHandler(this.DetenerToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(181, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(267, 6);
             // 
             // limpiarToolStripMenuItem
             // 
@@ -177,20 +198,59 @@
             // 
             // timerGenera
             // 
-            this.timerGenera.Interval = 500;
+            this.timerGenera.Interval = 200;
             this.timerGenera.Tick += new System.EventHandler(this.TimerGenera_Tick);
             // 
-            // exportarAPDFToolStripMenuItem
+            // arduinoToolStripMenuItem
             // 
-            this.exportarAPDFToolStripMenuItem.Name = "exportarAPDFToolStripMenuItem";
-            this.exportarAPDFToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.exportarAPDFToolStripMenuItem.Text = "Exportar a PDF";
-            this.exportarAPDFToolStripMenuItem.Click += new System.EventHandler(this.ExportarAPDFToolStripMenuItem_Click);
+            this.arduinoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.leerToolStripMenuItem,
+            this.detenerToolStripMenuItem1,
+            this.toolStripMenuItem3,
+            this.limpiarToolStripMenuItem1});
+            this.arduinoToolStripMenuItem.Name = "arduinoToolStripMenuItem";
+            this.arduinoToolStripMenuItem.Size = new System.Drawing.Size(123, 29);
+            this.arduinoToolStripMenuItem.Text = "Puerto Serie";
             // 
-            // toolStripMenuItem2
+            // leerToolStripMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(267, 6);
+            this.leerToolStripMenuItem.Name = "leerToolStripMenuItem";
+            this.leerToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.leerToolStripMenuItem.Text = "Leer";
+            this.leerToolStripMenuItem.Click += new System.EventHandler(this.AleatoriaToolStripMenuItem_Click);
+            // 
+            // detenerToolStripMenuItem1
+            // 
+            this.detenerToolStripMenuItem1.Name = "detenerToolStripMenuItem1";
+            this.detenerToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.detenerToolStripMenuItem1.Text = "Detener";
+            this.detenerToolStripMenuItem1.Click += new System.EventHandler(this.DetenerToolStripMenuItem_Click);
+            // 
+            // limpiarToolStripMenuItem1
+            // 
+            this.limpiarToolStripMenuItem1.Name = "limpiarToolStripMenuItem1";
+            this.limpiarToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.limpiarToolStripMenuItem1.Text = "Limpiar";
+            this.limpiarToolStripMenuItem1.Click += new System.EventHandler(this.LimpiarToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(267, 6);
+            // 
+            // tiempoDeRetardoToolStripMenuItem
+            // 
+            this.tiempoDeRetardoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1});
+            this.tiempoDeRetardoToolStripMenuItem.Name = "tiempoDeRetardoToolStripMenuItem";
+            this.tiempoDeRetardoToolStripMenuItem.Size = new System.Drawing.Size(301, 34);
+            this.tiempoDeRetardoToolStripMenuItem.Text = "Tiempo de retardo [ms]";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 31);
             // 
             // FormTemperatura
             // 
@@ -231,5 +291,12 @@
         private System.Windows.Forms.ToolStripMenuItem detenerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportarAPDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem arduinoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem leerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detenerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem limpiarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tiempoDeRetardoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }

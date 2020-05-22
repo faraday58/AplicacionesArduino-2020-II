@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.IO.Ports;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -13,19 +13,31 @@ namespace AplicacionesArduino_2020_II
     public partial class FormTemperatura : Form
     {
         private int tiempo;
-        private FileStream fs;        
+        private FileStream fs;
+        private SerialPort serialPort;
+        bool aleatoriaReal;
 
-        public FormTemperatura()
+        public FormTemperatura(SerialPort serialPort)
         {
             InitializeComponent();
+            this.serialPort = serialPort;
         }
 
         private void TimerGenera_Tick(object sender, EventArgs e)
         {
-            Random aleatoria = new Random();
-            int temperatura = aleatoria.Next(15, 50);
-            chSenal.Series[0].Points.AddXY(tiempo++, temperatura);
-            dgvDatos.Rows.Add(tiempo, temperatura);
+            if (aleatoriaReal)
+            {
+                Random aleatoria = new Random();
+                int temperatura = aleatoria.Next(15, 50);
+                chSenal.Series[0].Points.AddXY(tiempo++, temperatura);
+                dgvDatos.Rows.Add(tiempo, temperatura);
+            }else
+            {
+                int temperatura = serialPort.ReadByte();
+                chSenal.Series[0].Points.AddXY(tiempo++, temperatura);
+                dgvDatos.Rows.Add(tiempo, temperatura);
+
+            }
         }
 
 
@@ -36,7 +48,24 @@ namespace AplicacionesArduino_2020_II
 
         private void AleatoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+            ToolStripMenuItem toolStripMenuItem = (ToolStripMenuItem)sender;
+
+            if(toolStripMenuItem.Name == aleatoriaToolStripMenuItem.Name  )
+            {
+                aleatoriaReal = true;
+                int retardo = int.Parse(toolStripTextBox1.Text);
+                timerGenera.Interval = retardo;                
+            }
+            else
+            {
+                aleatoriaReal = false;
+                timerGenera.Interval = 200;
+            }
+
             timerGenera.Start();
+
+
         }
 
         private void GuardarToolStripMenuItem_Click(object sender, EventArgs e)
